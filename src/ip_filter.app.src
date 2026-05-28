@@ -1,11 +1,19 @@
 {application, ip_filter, [
     {description, "em_filter agent for IP geolocation and network info"},
-    {vsn, "0.1.0"},
-    {registered, []},
+    {vsn, "0.2.0"},
+    {registered, [ip_filter_sup, ip_filter_server]},
     {mod, {ip_filter_app, []}},
-    {applications, [kernel, stdlib, em_filter]},
-    {env, []},
-    {modules, []},
+    {applications, [kernel, stdlib, cowboy,
+        em_filter]},
+    {env, [
+        {pop_port,   0},
+        {query_port, 0},
+        {pop_seeds,  []}
+    ]},
+    {modules, [
+        ip_filter_sup,
+        ip_filter_server
+    ]},
     {licenses, ["Apache-2.0"]},
     {links, [{"GitHub", "https://github.com/EmergenceSystem/ip_filter"}]}
 ]}.

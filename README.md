@@ -3,6 +3,13 @@
 
 An [em_filter](https://hex.pm/packages/em_filter) agent that resolves IP geolocation and network information via [ipwho.is](https://ipwho.is/) (free, no key required).
 
+
+<!-- emergence-context -->
+Part of **[EmergenceSystem](https://github.com/EmergenceSystem)** — a distributed
+discovery network of small, single-source agents. This filter joins the em_pop gossip
+mesh and answers `POST /agent/query`; Emquest fans each query out to many filters in
+parallel and aggregates the results.
+
 ## Query
 
 An IPv4 or IPv6 address, optionally prefixed with text. The agent extracts the first valid IP found in the query string.
